@@ -1,12 +1,9 @@
-import { useState } from 'react'
+import { useState } from "react"
 
-import './styles/App.css'
+import Feed from '../components/Feed'
+import PostForm from '../components/PostForm'
 
-import Feed from './components/Feed'
-import PostForm from './components/PostForm'
-
-
-const App = () => {
+const Home = () => {
     const [posts, setPosts] = useState([])
 
     function handleSubmit({ history, userName }) {
@@ -22,13 +19,17 @@ const App = () => {
     }
 
     return (
-        <div className ="wrapper">
+        <>
             <PostForm onSubmit={handleSubmit}/>
             <main>
-                <Feed posts={posts}/>
+                <Feed 
+                    posts={posts}
+                    title="Seu Feed"
+                    subtitle="Acompanhe o que seus amigos estão pensando em tempo real"
+                />
             </main>
-        </div>
+        </>
     )
 }
 
-export default App
+export default Home
